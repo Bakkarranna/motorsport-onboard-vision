@@ -19,8 +19,6 @@ from __future__ import annotations
 import os
 from typing import Any
 
-import pytest
-
 INSIDE_CI = os.environ.get("CI", "").lower() in {"1", "true", "yes"}
 
 
@@ -34,33 +32,10 @@ def pytest_addoption(parser: Any) -> None:
 
 
 def pytest_configure(config: Any) -> None:
-    # Freeze the long-running motion tests by default so that a local run
-    # stays interactive. The full suite still has them, and CI unlocks them.
     if INSIDE_CI:
+        # CI runs the full suite, including the full-duration motion tests.
         return
-    marker = config.getoption("full_motion")
-    if not marker:
+    if not config.getoption("full_motion"):
+        # Keep the local default interactive: only the short-duration motion
+        # substitutes run. ``--full-motion`` opts back into the full set.
         config.option.markexpr = "not slow_motion"
-
-
-def pytest_collection_modifyitems(
-    session: Any, config: Any, items: list[Any]
-) -> None:
-    marker = config.getoption("full_motion")
-    if not marker:
-        return
-    # When run with --full-motion, drop the marker expression so that the
-    # slow_motion skip is not applied.
-    config.option.markexpr = ""
-
-
-
-def pytest_collection_modifyitems(
-    session: Any, config: Any, items: list[Any]
-) -> None:
-    marker = config.getoption("full_motion")
-    if not marker:
-        return
-    # When run with --full-motion, drop the marker expression so that the
-    # slow_motion skip, and the unit_tracking override, are not applied.
-    config.option.markexpr = ""

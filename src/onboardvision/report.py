@@ -152,10 +152,12 @@ def _extra_sections(smoothing: dict | None, sweep: list[dict] | None) -> list[st
             parts += [
                 "## Temporal filtering",
                 "",
-                f"A centred five frame average of the same per frame estimates moves the speed MAE "
-                f"from {raw:.2f} m/s to {filtered:.2f} m/s over {int(smoothing['windows'])} windows, "
-                "which is the square root of five to within the spread of the estimate. The "
-                "measurement noise is close to white, so filtering is nearly free.",
+                (
+                    f"A centred five frame average of the same per frame estimates moves the speed MAE "
+                    f"from {raw:.2f} m/s to {filtered:.2f} m/s over {int(smoothing['windows'])} windows, "
+                    "which is the square root of five to within the spread of the estimate. The "
+                    "measurement noise is close to white, so filtering is nearly free."
+                ),
                 "",
             ]
     if sweep:

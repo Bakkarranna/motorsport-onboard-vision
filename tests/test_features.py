@@ -5,7 +5,12 @@ from __future__ import annotations
 import cv2
 import numpy as np
 
-from onboardvision.features import TrackingConfig, detect_corners, road_mask, track_points
+from onboardvision.features import (
+    TrackingConfig,
+    detect_corners,
+    road_mask,
+    track_points,
+)
 
 
 def checkerboard(size: int = 240, square: int = 12) -> np.ndarray:
@@ -66,7 +71,7 @@ def test_forward_backward_check_drops_unmatched_points():
     # A point in a region that does not exist in the second image cannot be
     # tracked back to where it started.
     points = np.array([[[2.0, 130.0]], [[130.0, 130.0]]], dtype=np.float32)
-    old, new, keep = track_points(image, moved, points, config)
+    old, new, _keep = track_points(image, moved, points, config)
     assert len(new) <= len(points)
     if len(old):
         assert np.all(np.isfinite(old.reshape(-1, 2)))

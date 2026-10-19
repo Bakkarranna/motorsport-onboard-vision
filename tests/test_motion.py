@@ -161,7 +161,6 @@ def test_wrong_assumed_camera_height_shows_up_as_a_scale_error():
         assumed_height=0.8696  ratio=0.748556
         assumed_height=1.7250  ratio=1.484948
     """
-    from dataclasses import replace
 
     # The recovered speed should scale with the assumed height: a 10 % lower
     # assumed height should lower the speed by roughly 10 %, and a 50 % higher
@@ -193,9 +192,9 @@ def test_wrong_assumed_camera_height_shows_up_as_a_scale_error():
         ratio = float((valid["speed"] / valid["truth_speed"]).mean())
         err.append((assumed_height, ratio))
 
-    low_h, low_r = err[0]
-    mid_h, mid_r = err[1]
-    high_h, high_r = err[2]
+    _low_h, low_r = err[0]
+    _mid_h, mid_r = err[1]
+    _high_h, high_r = err[2]
     assert 0.9 < mid_r < 1.1
     assert low_r < mid_r
     assert high_r > mid_r

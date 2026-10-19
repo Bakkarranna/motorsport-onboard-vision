@@ -99,7 +99,7 @@ def road_mask(gray: np.ndarray) -> np.ndarray:
     renderer knows its own horizon, so the synthetic runs use the exact mask and
     this fallback is only for supplied footage.
     """
-    height, width = gray.shape
+    height = gray.shape[0]
     mask = np.zeros_like(gray)
     mask[int(height * 0.35) :, :] = 255
     return mask

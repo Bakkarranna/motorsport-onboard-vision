@@ -77,7 +77,7 @@ def test_plane_geometry_round_trip():
     camera = CameraModel(width=320, height=180, fx=260.0, fy=260.0)
     rotation = camera_from_world(0.4, 0.1, 0.0)
     homography = plane_homography(camera, np.array([3.0, -2.0, 1.2]), rotation)
-    x, y = plane_points(camera, homography, row_offset=20)
+    x, _y = plane_points(camera, homography, row_offset=20)
     assert x.shape == (camera.height - 20, camera.width)
     assert np.isfinite(x).all()
     # Rays above the horizon have no ground point and are excluded by the mask.
@@ -108,5 +108,5 @@ def test_camera_from_world_inverts_to_world():
     # A point ahead of the car projects inside the image.
     camera = CameraModel(width=640, height=360, fx=520.0, fy=520.0)
     pixels = camera.matrix() @ camera_point
-    u, v = pixels[0] / pixels[2], pixels[1] / pixels[2]
+    u, _v = pixels[0] / pixels[2], pixels[1] / pixels[2]
     assert -50.0 < u < camera.width + 50.0

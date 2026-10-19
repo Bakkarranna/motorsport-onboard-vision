@@ -54,13 +54,13 @@ class Track:
     arc_length: np.ndarray
     half_width: float = 6.0
     kerb_width: float = 3.0
-    _lookup: "TrackLookup | None" = field(default=None, init=False, repr=False)
+    _lookup: TrackLookup | None = field(default=None, init=False, repr=False)
 
     @property
     def length(self) -> float:
         return float(self.arc_length[-1])
 
-    def centreline_lookup(self) -> "TrackLookup":
+    def centreline_lookup(self) -> TrackLookup:
         """Build the world to track coordinate lookup once and reuse it."""
         if self._lookup is None:
             self._lookup = TrackLookup(self)
@@ -69,7 +69,7 @@ class Track:
     @classmethod
     def from_points(
         cls, points: np.ndarray, half_width: float = 6.0, kerb_width: float = 3.0
-    ) -> "Track":
+    ) -> Track:
         closed = np.vstack([points, points[:1]])
         segments = np.linalg.norm(np.diff(closed, axis=0), axis=1)
         arc_length = np.concatenate([[0.0], np.cumsum(segments)])
@@ -99,7 +99,7 @@ class Track:
             kerb_width=kerb_width,
         )
 
-    def lookup_grid(self) -> "TrackLookup":
+    def lookup_grid(self) -> TrackLookup:
         return TrackLookup(self)
 
 

@@ -247,7 +247,7 @@ class OnboardSequence:
         image[...] = asphalt
 
         # Centre line, dashed every 8 m of arc length.
-        centre = (distance < 0.14) & (((arc % 9.0) < 4.5))
+        centre = (distance < 0.14) & ((arc % 9.0) < 4.5)
         # Solid edge lines.
         edge = (distance > track.half_width - 0.45) & (distance < track.half_width - 0.10)
         line = (centre | edge)[:, :, None]

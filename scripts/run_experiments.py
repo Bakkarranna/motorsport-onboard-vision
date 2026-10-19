@@ -18,7 +18,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from onboardvision.evaluate import (  # noqa: E402
+from onboardvision.evaluate import (
     default_setups,
     load_track,
     parameter_sweep,
@@ -26,7 +26,7 @@ from onboardvision.evaluate import (  # noqa: E402
     run_setup,
     smoothing_gain,
 )
-from onboardvision.plots import (  # noqa: E402
+from onboardvision.plots import (
     plot_errors,
     plot_frames,
     plot_resolution,
@@ -35,9 +35,9 @@ from onboardvision.plots import (  # noqa: E402
     plot_trust,
     plot_yaw,
 )
-from onboardvision.render import OnboardSequence  # noqa: E402
-from onboardvision.report import write_html, write_json, write_markdown  # noqa: E402
-from onboardvision.track import Track  # noqa: E402
+from onboardvision.render import OnboardSequence
+from onboardvision.report import write_html, write_json, write_markdown
+from onboardvision.track import Track
 
 
 def main() -> int:
