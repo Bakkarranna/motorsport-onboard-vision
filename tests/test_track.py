@@ -8,7 +8,6 @@ and yaw rate that ship with it, and the plane homography must be invertible.
 from __future__ import annotations
 
 import numpy as np
-
 from onboardvision.geometry import (
     CameraModel,
     camera_from_world,

@@ -13,7 +13,6 @@ from dataclasses import replace
 
 import numpy as np
 import pytest
-
 from onboardvision.evaluate import metrics_from_frame
 from onboardvision.geometry import CameraModel
 from onboardvision.motion import HomographyEstimator, estimate_frames, prepare
