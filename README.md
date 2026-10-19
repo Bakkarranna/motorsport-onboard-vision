@@ -53,7 +53,10 @@ verifies the linearity that the estimator relies on.
 
 The table below is the smoke report produced by :ref:`scripts/build_report.py` on a
 640x360 render at 60 fps with camera height 1.15 m, pitch 0.10 rad, noise 3 px
-and the default tracking config. The full numbers are in :file:`report.json`.
+and the default tracking config. The full numbers, for every setup as well as
+the resolution and tracking-config sweeps, are in :file:`reports/results.json`
+and :file:`reports/RESULTS.md`; :file:`report.json` records the canonical
+parameters the table above was produced with so the run can be audited.
 
 .. list-table::
    :header-rows: 1
@@ -89,7 +92,7 @@ interactive.
 
 .. code-block:: text
 
-   onboardvision/
+   src/onboardvision/
    ├── geometry.py        camera frame, ground normal, horizon mask
    ├── features.py        corners, LK tracking, forward-backward filter
    ├── planar.py          three-parameter planar model and fit
