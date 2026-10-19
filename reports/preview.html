@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Onboard vision results</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0 auto; max-width: 1040px; padding: 32px 20px 64px;
+         font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+         color: #16202b; background: #f7f8fa; line-height: 1.5; }
+  h1 { font-size: 1.7rem; margin-bottom: .2rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.2rem; border-bottom: 1px solid #dde3ea; padding-bottom: .3rem; }
+  p.lede { color: #4a5768; margin-top: .2rem; }
+  table { border-collapse: collapse; width: 100%; background: #fff; font-size: .86rem;
+           box-shadow: 0 1px 2px rgba(20,30,45,.08); }
+  th, td { text-align: right; padding: 7px 10px; border-bottom: 1px solid #edf1f5; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: #eef2f7; font-weight: 600; }
+  figure { margin: 0 0 22px; }
+  img { width: 100%; border: 1px solid #e2e8ef; border-radius: 6px; background: #fff; }
+  figcaption { font-size: .78rem; color: #5b6878; margin-top: 6px; }
+  ul { padding-left: 1.1rem; }
+</style>
+</head>
+<body>
+<h1>Onboard vision: measured results</h1>
+<p class="lede">Monocular speed and yaw rate from a single onboard camera looking at the road
+plane. Every number is measured on procedurally rendered footage whose ground truth is exact.</p>
+<h2>Setups</h2>
+<table><thead><tr><th>setup</th><th>covered %</th><th>speed MAE m/s</th><th>speed MAE %</th><th>speed bias m/s</th><th>yaw MAE rad/s</th><th>yaw sign %</th></tr></thead><tbody><tr><td>nominal</td><td> 100.0</td><td>  1.40</td><td>  2.57</td><td>  -0.76</td><td> 0.030</td><td> 100.0</td></tr><tr><td>noise_high</td><td> 100.0</td><td>  2.00</td><td>  3.68</td><td>  -1.74</td><td> 0.048</td><td> 100.0</td></tr><tr><td>texture_weak</td><td> 100.0</td><td>  6.70</td><td> 12.29</td><td>  -6.66</td><td> 0.070</td><td> 100.0</td></tr><tr><td>texture_none</td><td>  92.2</td><td> 11.56</td><td> 21.23</td><td> -11.56</td><td> 0.080</td><td> 100.0</td></tr><tr><td>roll_high</td><td> 100.0</td><td> 14.31</td><td> 26.26</td><td> -14.31</td><td> 0.637</td><td> 100.0</td></tr><tr><td>height_wrong</td><td> 100.0</td><td> 10.11</td><td> 18.54</td><td> -10.11</td><td> 0.030</td><td> 100.0</td></tr><tr><td>texture_weak_gated</td><td>  50.0</td><td>  6.37</td><td> 11.72</td><td>  -6.31</td><td> 0.057</td><td> 100.0</td></tr></tbody></table>
+<h2>What the numbers say</h2>
+<ul><li>Best speed accuracy: nominal at 2.57 percent MAE over 90 of 90 frames.</li><li>Worst case that still produced estimates: roll_high at 26.26 percent, coverage 100 percent.</li><li>Systematic speed bias above 2 m/s: texture_weak (-6.7 m/s), texture_none (-11.6 m/s), roll_high (-14.3 m/s), height_wrong (-10.1 m/s), texture_weak_gated (-6.3 m/s).</li></ul>
+<h2>Resolution</h2>
+<table><thead><tr><th>camera</th><th>covered %</th><th>speed MAE m/s</th><th>speed MAE %</th><th>yaw MAE rad/s</th></tr></thead><tbody><tr><td>320x180</td><td>100</td><td>1.62</td><td>2.96</td><td>0.081</td></tr><tr><td>640x360</td><td>100</td><td>1.40</td><td>2.57</td><td>0.030</td></tr><tr><td>960x540</td><td>100</td><td>1.91</td><td>3.50</td><td>0.029</td></tr></tbody></table>
+<h2>Figures</h2>
+<figure><img src="reports/figures/frames.png" alt="frames"><figcaption>frames</figcaption></figure><figure><img src="reports/figures/speed.png" alt="speed"><figcaption>speed</figcaption></figure><figure><img src="reports/figures/yaw_rate.png" alt="yaw_rate"><figcaption>yaw rate</figcaption></figure><figure><img src="reports/figures/setups.png" alt="setups"><figcaption>setups</figcaption></figure><figure><img src="reports/figures/error_distribution.png" alt="error_distribution"><figcaption>error distribution</figcaption></figure><figure><img src="reports/figures/trust.png" alt="trust"><figcaption>trust</figcaption></figure><figure><img src="reports/figures/resolution.png" alt="resolution"><figcaption>resolution</figcaption></figure>
+</body>
+</html>

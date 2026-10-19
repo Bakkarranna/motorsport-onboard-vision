@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-10-18T17:38:26.274334+00:00",
+  "parameters": {
+    "track": "wave_loop(4000, radius=190.0, wobble=25.0)",
+    "track_length_m": 1277.7712049456466,
+    "camera": {
+      "width": 640,
+      "height": 360,
+      "fx": 520.0,
+      "fy": 520.0
+    },
+    "camera_height_m": 1.15,
+    "camera_pitch_rad": 0.1,
+    "fps": 60.0,
+    "noise_std_px": 3.0,
+    "texture_scale": 1.0,
+    "tracking_config": {
+      "max_corners": 900,
+      "quality": 0.002,
+      "min_distance": 3.0,
+      "block_size": 5,
+      "window": 11,
+      "pyramid_levels": 4,
+      "forward_backward_threshold": 1.5,
+      "ransac_threshold": 2.0,
+      "min_inliers": 15,
+      "huber_px": 1.5,
+      "inlier_px": 3.0,
+      "residual_threshold": 2.5,
+      "max_speed": 120.0
+    },
+    "warmup_seconds": 0.5,
+    "duration_seconds": 4.5
+  },
+  "runs": [
+    {
+      "setup": "nominal",
+      "description": "Clean footage, correct camera height and pitch."
+    },
+    {
+      "setup": "noise_high",
+      "description": "Sensor noise quadrupled, as on a compressed broadcast feed."
+    },
+    {
+      "setup": "texture_weak",
+      "description": "Road texture reduced to 35 percent, like fresh asphalt in shade."
+    },
+    {
+      "setup": "texture_none",
+      "description": "Essentially untextured road, to show what the estimator does when it should give up."
+    },
+    {
+      "setup": "roll_high",
+      "description": "Body roll of 0.06 rad per g enabled, so the camera rotates about the optical axis."
+    },
+    {
+      "setup": "height_wrong",
+      "description": "Estimator assumes a camera 20 cm lower than it really is."
+    },
+    {
+      "setup": "texture_weak_gated",
+      "description": "Same footage as texture_weak with the inlier gate raised to 100, showing that the feature count can be used to refuse a frame instead of guessing."
+    }
+  ],
+  "status": "parameters_only"
+}

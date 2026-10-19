@@ -1,0 +1,24 @@
+nominal          coverage 100.0%  speed MAE   1.40 m/s ( 2.57%)  bias  -0.76  yaw MAE  0.030     66 ms/frame
+noise_high       coverage 100.0%  speed MAE   2.00 m/s ( 3.68%)  bias  -1.74  yaw MAE  0.048     69 ms/frame
+texture_weak     coverage 100.0%  speed MAE   6.70 m/s (12.29%)  bias  -6.66  yaw MAE  0.070     77 ms/frame
+texture_none     coverage  92.2%  speed MAE  11.56 m/s (21.23%)  bias -11.56  yaw MAE  0.080     66 ms/frame
+roll_high        coverage 100.0%  speed MAE  14.31 m/s (26.26%)  bias -14.31  yaw MAE  0.637    214 ms/frame
+height_wrong     coverage 100.0%  speed MAE  10.11 m/s (18.54%)  bias -10.11  yaw MAE  0.030    107 ms/frame
+texture_weak_gated coverage  50.0%  speed MAE   6.37 m/s (11.72%)  bias  -6.31  yaw MAE  0.057     64 ms/frame
+resolution 320x180  coverage 100.0%  speed MAE   1.62 m/s ( 2.96%)     73 ms/frame
+resolution 640x360  coverage 100.0%  speed MAE   1.40 m/s ( 2.57%)    129 ms/frame
+resolution 960x540  coverage 100.0%  speed MAE   1.91 m/s ( 3.50%)    110 ms/frame
+
+tracking configuration sweep (one rendered sequence, replayed for each config)
+strong_long_window   coverage 100.0%  speed MAE  11.12 m/s (20.44%)    141 ms/frame
+few_weak_corners     coverage 100.0%  speed MAE   3.69 m/s ( 6.77%)     88 ms/frame
+many_short_window    coverage 100.0%  speed MAE   1.52 m/s ( 2.79%)    159 ms/frame
+selected             coverage 100.0%  speed MAE   1.40 m/s ( 2.57%)     77 ms/frame
+short_window         coverage 100.0%  speed MAE   1.39 m/s ( 2.55%)     63 ms/frame
+deep_pyramid         coverage 100.0%  speed MAE   1.44 m/s ( 2.64%)     81 ms/frame
+shallow_pyramid      coverage 100.0%  speed MAE   1.49 m/s ( 2.73%)     66 ms/frame
+
+centred five frame average of the per frame speed estimate: MAE 1.40 to 1.29 m/s
+
+wrote reports\RESULTS.md, reports\results.json and 7 figures
+total 786 s

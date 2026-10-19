@@ -1,0 +1,142 @@
+{
+  "setups": {
+    "nominal": {
+      "description": "Clean footage, correct camera height and pitch.",
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 1.400527507072626,
+      "speed_rmse_mps": 1.6127296172696526,
+      "speed_bias_mps": -0.7599697010485561,
+      "speed_mae_percent": 2.5692823323528833,
+      "yaw_rate_mae_rad_s": 0.029947752636123405,
+      "yaw_rate_rmse_rad_s": 0.03792401924565577,
+      "yaw_sign_share": 1.0
+    },
+    "noise_high": {
+      "description": "Sensor noise quadrupled, as on a compressed broadcast feed.",
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 2.0040284880338386,
+      "speed_rmse_mps": 2.4304067116561145,
+      "speed_bias_mps": -1.7355693343320469,
+      "speed_mae_percent": 3.675538786894892,
+      "yaw_rate_mae_rad_s": 0.04752813831205568,
+      "yaw_rate_rmse_rad_s": 0.05750911851624723,
+      "yaw_sign_share": 1.0
+    },
+    "texture_weak": {
+      "description": "Road texture reduced to 35 percent, like fresh asphalt in shade.",
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 6.698468146348701,
+      "speed_rmse_mps": 7.544104942149332,
+      "speed_bias_mps": -6.655468867559316,
+      "speed_mae_percent": 12.294661164596123,
+      "yaw_rate_mae_rad_s": 0.06951192966219491,
+      "yaw_rate_rmse_rad_s": 0.08349239891621556,
+      "yaw_sign_share": 1.0
+    },
+    "texture_none": {
+      "description": "Essentially untextured road, to show what the estimator does when it should give up.",
+      "frames": 90.0,
+      "evaluated": 83.0,
+      "coverage": 0.9222222222222223,
+      "speed_mae_mps": 11.556464095987733,
+      "speed_rmse_mps": 12.064641302929862,
+      "speed_bias_mps": -11.556464095987733,
+      "speed_mae_percent": 21.225307932978506,
+      "yaw_rate_mae_rad_s": 0.07988490553879353,
+      "yaw_rate_rmse_rad_s": 0.09933780064220835,
+      "yaw_sign_share": 1.0
+    },
+    "roll_high": {
+      "description": "Body roll of 0.06 rad per g enabled, so the camera rotates about the optical axis.",
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 14.31032077888255,
+      "speed_rmse_mps": 14.48073550747957,
+      "speed_bias_mps": -14.31032077888255,
+      "speed_mae_percent": 26.256121960275763,
+      "yaw_rate_mae_rad_s": 0.6373664935980494,
+      "yaw_rate_rmse_rad_s": 0.6486855640580617,
+      "yaw_sign_share": 1.0
+    },
+    "height_wrong": {
+      "description": "Estimator assumes a camera 20 cm lower than it really is.",
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 10.106358184508109,
+      "speed_rmse_mps": 10.175298964121751,
+      "speed_bias_mps": -10.106358184508109,
+      "speed_mae_percent": 18.54247444520298,
+      "yaw_rate_mae_rad_s": 0.029947752777240277,
+      "yaw_rate_rmse_rad_s": 0.037924019351890166,
+      "yaw_sign_share": 1.0
+    },
+    "texture_weak_gated": {
+      "description": "Same footage as texture_weak with the inlier gate raised to 100, showing that the feature count can be used to refuse a frame instead of guessing.",
+      "frames": 90.0,
+      "evaluated": 45.0,
+      "coverage": 0.5,
+      "speed_mae_mps": 6.366185747208838,
+      "speed_rmse_mps": 7.191827113779412,
+      "speed_bias_mps": -6.310044878899364,
+      "speed_mae_percent": 11.719829112132807,
+      "yaw_rate_mae_rad_s": 0.05729221451548775,
+      "yaw_rate_rmse_rad_s": 0.07154804840180726,
+      "yaw_sign_share": 1.0
+    }
+  },
+  "resolution": [
+    {
+      "width": 320,
+      "height": 180,
+      "ms_per_frame": 72.5128033334234,
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 1.6179776337792189,
+      "speed_rmse_mps": 1.882669844003242,
+      "speed_bias_mps": -1.15870865306414,
+      "speed_mae_percent": 2.9648203714121792,
+      "yaw_rate_mae_rad_s": 0.0805302973349454,
+      "yaw_rate_rmse_rad_s": 0.09742907506052878,
+      "yaw_sign_share": 1.0
+    },
+    {
+      "width": 640,
+      "height": 360,
+      "ms_per_frame": 129.01502000200304,
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 1.400527507072626,
+      "speed_rmse_mps": 1.6127296172696526,
+      "speed_bias_mps": -0.7599697010485561,
+      "speed_mae_percent": 2.5692823323528833,
+      "yaw_rate_mae_rad_s": 0.029947752636123405,
+      "yaw_rate_rmse_rad_s": 0.03792401924565577,
+      "yaw_sign_share": 1.0
+    },
+    {
+      "width": 960,
+      "height": 540,
+      "ms_per_frame": 109.89244555692292,
+      "frames": 90.0,
+      "evaluated": 90.0,
+      "coverage": 1.0,
+      "speed_mae_mps": 1.9061122455294588,
+      "speed_rmse_mps": 2.269675917215244,
+      "speed_bias_mps": -1.5632591969025453,
+      "speed_mae_percent": 3.496919010037142,
+      "yaw_rate_mae_rad_s": 0.02903689839039714,
+      "yaw_rate_rmse_rad_s": 0.035852758023481736,
+      "yaw_sign_share": 1.0
+    }
+  ]
+}
