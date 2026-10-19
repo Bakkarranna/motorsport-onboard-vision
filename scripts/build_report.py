@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -25,20 +25,16 @@ os.environ.setdefault("NUMBA_NUM_THREADS", "1")
 os.environ.setdefault("TF_NUM_INTRAOP_THREADS", "1")
 os.environ.setdefault("TF_NUM_INTEROP_THREADS", "1")
 
-import numpy as np  # noqa: E402
+import numpy as np
 
 np.set_printoptions(precision=6, linewidth=120)
 
 from onboardvision.evaluate import (
-    Setup,
     default_setups,
-    load_track,
-)  # noqa: E402
-from onboardvision.geometry import CameraModel  # noqa: E402
-from onboardvision.motion import HomographyEstimator  # noqa: E402
-from onboardvision.render import OnboardSequence, RenderConfig  # noqa: E402
-from onboardvision.track import Track, wave_loop  # noqa: E402
-from onboardvision.tests import REQUIRED_YAW_DURATION  # noqa: E402
+)
+from onboardvision.geometry import CameraModel
+from onboardvision.tests import REQUIRED_YAW_DURATION
+from onboardvision.track import Track, wave_loop
 
 
 def experiment_params() -> dict[str, Any]:
@@ -81,11 +77,10 @@ def experiment_params() -> dict[str, Any]:
 
 def main() -> None:
     params = experiment_params()
-    track = load_track()
     setups = default_setups(duration=params["duration_seconds"])
 
     report = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "parameters": params,
         "runs": [
             {
