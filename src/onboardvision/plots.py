@@ -121,7 +121,7 @@ def plot_setups(runs: list[SetupRun], path: str | Path) -> Path:
 def plot_trust(runs: list[SetupRun], path: str | Path) -> Path:
     """Residual and inlier history for the clean and the untextured footage."""
     fig, axes = plt.subplots(2, 1, figsize=(9, 5.0), sharex=True)
-    for run, colour in zip(runs, (ACCENT, WARM)):
+    for run, colour in zip(runs, (ACCENT, WARM), strict=False):
         frame = run.frame
         axes[0].plot(
             frame["time"], frame["rms_px"], color=colour, lw=0.9, label=run.setup.name.replace("_", " ")
@@ -163,7 +163,7 @@ def plot_errors(runs: list[SetupRun], path: str | Path) -> Path:
     """Distribution of the per frame speed error across the setups."""
     fig, axis = plt.subplots(figsize=(7.0, 3.4))
     bins = np.linspace(-10.0, 6.0, 41)
-    for run, colour in zip(runs, (ACCENT, MUTED, WARM)):
+    for run, colour in zip(runs, (ACCENT, MUTED, WARM), strict=False):
         frame = run.frame
         ok = frame[frame["ok"]]
         if ok.empty:
