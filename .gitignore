@@ -10,3 +10,6 @@ venv/
 .pytest_cache/
 .ruff_cache/
 __pycache__/
+
+# leftover git history-rewrite log
+.filter-branch.log
